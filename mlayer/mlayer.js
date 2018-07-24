@@ -16,10 +16,11 @@
  */
 const body = document.body
 const root = document.documentElement
-const layerCss = createElement('link', Object.assign({}, {
+const cssHref = Array.prototype.filter.call(document.scripts,(item)=>item.src.indexOf('mlayer')!==-1)[0].src.replace('.js','.css')
+const layerCss = createElement('link',  {
   rel: 'stylesheet',
-  href: 'layer.css'
-}))
+  href: cssHref
+})
 document.head.appendChild(layerCss)
 
 let modalOptions = {
@@ -49,8 +50,9 @@ let modalOptions = {
 }
 
 function showModal(options) {
+    document.querySelector('.z-layer') && hideModal()
   // opt = {...modalOpt, ...opt}
-  options = Object.assign(modalOptions, options)
+  options = Object.assign({},modalOptions, options)
   const hasTwoBtns = options.btns.length === 2
   const hasTitle = options.title !== ''
   /**
@@ -60,7 +62,7 @@ function showModal(options) {
     class: 'z-layer-btn',
     href: 'javascript:;'
   }
-  let leftBtn = createElement('a', Object.assign(btnOpts, {
+  let leftBtn = createElement('a', Object.assign({},btnOpts, {
     innerHTML: options.btns[0],
     onclick: options.clickLeftBtn
   }))
@@ -69,7 +71,7 @@ function showModal(options) {
   })
   btnWrap.appendChild(leftBtn)
   if (hasTwoBtns) {
-    let rightBtn = createElement('a', Object.assign(btnOpts, {
+    let rightBtn = createElement('a', Object.assign({},btnOpts, {
       innerHTML: options.btns[1],
       onclick: options.clickRightBtn
     }))
@@ -116,8 +118,9 @@ function showModal(options) {
 }
 
 function hideModal(callback) {
-  body.remove(document.querySelector('.z-layer'))
-  callback && callback()
+  const modal = document.querySelector('.z-layer')
+  modal && body.removeChild(modal)
+  typeof callback === 'function' && callback()
   canScroll()
 }
 // showModal({title:'标题',content:'你确定要修改么'})
@@ -133,21 +136,29 @@ function createElement(elementName, attr) {
   return element
 }
 function forbidScroll(){
-  root.className += ' noscroll'
+
+  root.className += root.className.indexOf('noscroll')!== -1 ?'':' noscroll'
 }
 function canScroll(){
   root.className = root.className.replace(' noscroll','')
 }
 
-// let toastOptions = {
-//   content: '',
-//   icon: '',
-//   duration: 2000,
-// }
-// const successIcon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAOVBMVEUAAAD///////////////////////////////////////////////////////////////////////8KOjVvAAAAEnRSTlMAEPDQoDDPYLCQIN/An4BwUEAtwvFNAAAAiElEQVQ4y9WQSwrDMAwFn/y3m/Sj+x+2aqEkMs3bhszGoBmMEC6PdKE+3zQxf1eNQr5fuM+B+6rcd+5lNR+ILx+f/Wz2WqeLNNmtb3S/ss1K3vsIR1Qj1M2HAYdYYawCCeoWmIqSy/dtwEFhHF1A2hY88Jf08wvAixd4kQBeDPAiAbwY4DxxAm+JAQldhppBqgAAAABJRU5ErkJggg=='
+let toastOptions = {
+  content: '',
+  icon: '',
+  duration: 2000,
+}
+/*
+const successIcon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAOVBMVEUAAAD///////////////////////////////////////////////////////////////////////8KOjVvAAAAEnRSTlMAEPDQoDDPYLCQIN/An4BwUEAtwvFNAAAAiElEQVQ4y9WQSwrDMAwFn/y3m/Sj+x+2aqEkMs3bhszGoBmMEC6PdKE+3zQxf1eNQr5fuM+B+6rcd+5lNR+ILx+f/Wz2WqeLNNmtb3S/ss1K3vsIR1Qj1M2HAYdYYawCCeoWmIqSy/dtwEFhHF1A2hY88Jf08wvAixd4kQBeDPAiAbwY4DxxAm+JAQldhppBqgAAAABJRU5ErkJggg=='
+ showToast({
+  content: 'sucess',
+  icon: successIcon,
+  duration: 2000,
+}) */
 const loadingIcon = 'http://omizt4opc.bkt.clouddn.com/loading200.gif'
 
 function showToast(toastOptions) {
+  document.querySelector('.z-toast') && hideToast()
   const toastOptionsIsObj = (typeof toastOptions) === 'object'
   let duration = 2000
   const hasIcon = toastOptionsIsObj && 'icon' in toastOptions
@@ -155,10 +166,10 @@ function showToast(toastOptions) {
   if (toastOptionsIsObj) {
     contentString = toastOptions.content
     const hasNewDuration = 'duration' in toastOptions
-    duration = hasNewDuration && toastOptions.duration
+    hasNewDuration && (duration = toastOptions.duration) 
   } else {
-    const hasNewDuration = arguments.length === 2
-    duration = arguments[1]
+    const hasNewDuration = arguments.length === 2 && (!isNaN(arguments[1]))
+    hasNewDuration && (duration = parseInt(arguments[1]))
     contentString = toastOptions
   }
   let box = createElement('div', {
@@ -190,25 +201,38 @@ function showToast(toastOptions) {
   })
   layerSection.appendChild(mask)
   document.body.appendChild(layerSection)
-  console.log(duration)
+  duration && setTimeout(hideToast, duration)
   forbidScroll()
-  // duration !== 0  && setTimeout(hideToast, duration)
 }
 
 function hideToast(callback) {
-  body.remove(document.querySelector('.z-toast'))
-  callback && callback()
+  const toast = document.querySelector('.z-toast')
+  toast && body.removeChild(toast)
+  typeof callback === 'function' && callback()
   canScroll()
 }
 // showToast('修改成功!',9000)
-function showLoading() {
+function showLoading(duration) {
+  duration = 0 | duration
   showToast({
     content: '',
     duration: 0,
     icon: loadingIcon
   })
+  if(duration){
+    setTimeout(hideToast,duration)
+  }
 }
 function hideLoading(){
   hideToast()
 }
+// export{
+//   showToast,
+//   showModal,
+//   showLoading,
+//   hideLoading,
+//   hideModal,
+//   hideToast
+
+// }
 

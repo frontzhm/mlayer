@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="../mlayer/mlayer.css"> -->
+    <title>test</title>
+</head>
+
+<body>
+    
+    <!-- <button id="hideLoadBtn"> 隐藏加载层</button> -->
+    <!-- <button id="hideToastBtn"> 隐藏toast</button> -->
+    <!-- <button id="hideModalBtn"> 隐藏modal</button> -->
+    <br>
+    <button id="showLoadBtn">加载层</button>
+    <button id="showToastBtn"> 提示层</button>
+    <button id="showToastBtn2"> 带图标的提示层</button>
+    <button id="showModalBtn"> 有1按钮的modal</button>
+    <button id="showModalBtn2"> 有2按钮的modal</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    今天觉着公司电脑名字太难听，就准备改个名字： 1，系统偏好设置—用户与组群——当前用户（高级配置） 2、然后就悲催了，我的账户从管理员变成了普通用户，不能解锁（用户和群组）了，但是能正常使用 3、还好找到了方法，重新新建一个管理员账户，解锁（用户和群组）后，选中原来用户勾选“允许用户管理这台电脑”，就大功告成了。
+    操作步骤如下： 开机，在没有亮屏幕前，一直按住command+s 进入命令行状态 当光标稳定后 回车，2次 输入：mount -rw空格／ 输入：cd var 输入：cd db 每段要回车 输入：rm .AppleSetupDone回车
+    注意，那几个大写 输入：reboot 重启 重新注册账户，登陆 4、可以把新建的账户删除了～～～ 首先，确定，你要删除的用户下我的账户从管理员变成了普通用户，不能解锁（用户和群组）了，但是能正常使用 3、还好找到了方法，重新新建一个管理员账户，解锁（用户和群组）后，选中原来用户勾选“允许用户管理这台电脑”，就大功告成了。
+    操作步骤如下： 开机，在没有亮屏幕前，一直按住command+s 进入命令行状态 当光标稳定后 回车，2次 输入：mount -rw空格／ 输入：cd var 输入：cd db 每段要回车 输入：rm .AppleSetupDone回车
+    注意，那几个大写 输入：reboot 重启 重新注册账户，登陆 4、可以把新建的账户删除了～～～ 首先，确定，你要删除的用户下我的账户从管理员变成了普通用户，不能解锁（用户和群组）了，但是能正常使用 3、还好找到了方法，重新新建一个管理员账户，解锁（用户和群组）后，选中原来用户勾选“允许用户管理这台电脑”，就大功告成了。
+    操作步骤如下： 开机，在没有亮屏幕前，一直按住command+s 进入命令行状态 当光标稳定后 回车，2次 输入：mount -rw空格／ 输入：cd var 输入：cd db 每段要回车 输入：rm .AppleSetupDone回车
+    注意，那几个大写 输入：reboot 重启 重新注册账户，登陆 4、可以把新建的账户删除了～～～ 首先，确定，你要删除的用户下我的账户从管理员变成了普通用户，不能解锁（用户和群组）了，但是能正常使用 3、还好找到了方法，重新新建一个管理员账户，解锁（用户和群组）后，选中原来用户勾选“允许用户管理这台电脑”，就大功告成了。
+    操作步骤如下： 开机，在没有亮屏幕前，一直按住command+s 进入命令行状态 当光标稳定后 回车，2次 输入：mount -rw空格／ 输入：cd var 输入：cd db 每段要回车 输入：rm .AppleSetupDone回车
+    注意，那几个大写 输入：reboot 重启 重新注册账户，登陆 4、可以把新建的账户删除了～～～ 首先，确定，你要删除的用户下我的账户从管理员变成了普通用户，不能解锁（用户和群组）了，但是能正常使用 3、还好找到了方法，重新新建一个管理员账户，解锁（用户和群组）后，选中原来用户勾选“允许用户管理这台电脑”，就大功告成了。
+    操作步骤如下： 开机，在没有亮屏幕前，一直按住command+s 进入命令行状态 当光标稳定后 回车，2次 输入：mount -rw空格／ 输入：cd var 输入：cd db 每段要回车 输入：rm .AppleSetupDone回车
+    注意，那几个大写 输入：reboot 重启 重新注册账户，登陆 4、可以把新建的账户删除了～～～ 首先，确定，你要删除的用户下，没有你的重要资料，或者需要备份的资料 然后，进入偏好设置---用户群组--解锁--点中你要删除的用户名-点击下面的减号-选择第三项--删除
+    <script src="../mlayer/mlayer.js"></script>
+    <script>
+        showLoadBtn.onclick = function(){
+            showLoading(1000)
+            // also input time 0 will  not dispear 
+            // showLoading(0)
+        }
+       
+        showToastBtn.onclick = function(){
+           showToast('i am a toast ,defaultly hide after two seconds')
+           // custom duration , equal 0 will not hide
+           // showToast(3000) 
+        }
+        showToastBtn2.onclick = function(){
+            const successIcon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAOVBMVEUAAAD///////////////////////////////////////////////////////////////////////8KOjVvAAAAEnRSTlMAEPDQoDDPYLCQIN/An4BwUEAtwvFNAAAAiElEQVQ4y9WQSwrDMAwFn/y3m/Sj+x+2aqEkMs3bhszGoBmMEC6PdKE+3zQxf1eNQr5fuM+B+6rcd+5lNR+ILx+f/Wz2WqeLNNmtb3S/ss1K3vsIR1Qj1M2HAYdYYawCCeoWmIqSy/dtwEFhHF1A2hY88Jf08wvAixd4kQBeDPAiAbwY4DxxAm+JAQldhppBqgAAAABJRU5ErkJggg=='
+            showToast({
+                content: 'sucess',
+                icon: successIcon,
+                duration: 2000,
+            }) 
+        }
+        showModalBtn.onclick = function(){
+            showModal({ content: '你确定要修改么' ,btns:'yes'})
+        }
+        showModalBtn2.onclick = function(){
+            // default two btns, cancel and enter
+            showModal({ content: '你确定要修改么'})
+            // showModal({ content: '你确定要修改么' ,btns:['left','right'],clickLeftBtn: () => { console.log('取消') } })
+        }
+        /* hideLoadBtn.onclick = function(){
+            hideLoading(()=>{
+                console.log('here is callback after hiding loading, you needn\'t write when it is useless ')
+            })
+        }
+        hideModalBtn.onclick = function(){
+            hideModal(()=>{
+                console.log('here is callback after hiding Modal, you needn\'t write when it is useless ')
+            })
+        } */
+        
+    </script>
+</body>
+
+</html>

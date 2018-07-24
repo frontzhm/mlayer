@@ -1,24 +1,31 @@
-@charset "UTF-8";
-body, html, h3, p {
+$titleFontSize: 16px;
+$titleColor: #555;
+$contentFontSize: 14px;
+$contentColor: #999;
+$btnFontSize: $contentFontSize;
+$borderColor: #eee;
+$leftBtnColor: #999;
+$rightBtnColor: #40affe;
+
+body,html,h3,p{
   margin: 0;
   padding: 0;
 }
 
-body, html {
+body,html{
   height: 100%;
   width: 100%;
+  // overflow: hidden;
 }
-
 .noscroll,
 .noscroll body {
-  overflow: hidden;
+    overflow: hidden;
 }
-
 .noscroll body {
-  position: relative;
+    position: relative;
 }
 
-.z-layer {
+.z-layer{
   width: 100%;
   height: 100%;
   position: absolute;
@@ -26,13 +33,12 @@ body, html {
   top: 0;
   z-index: 99;
 }
-
 /* .z-layer-mask{
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, .5);
 } */
-.z-layer-mask {
+.z-layer-mask{
   width: 100%;
   height: 100%;
   display: flex;
@@ -40,58 +46,53 @@ body, html {
   align-items: center;
   /* 水平居中 */
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, .5);
 }
-
-.z-layer-box {
+.z-layer-box{
   width: 80%;
   height: auto;
   background-color: #fff;
   border-radius: 4px;
 }
-
-.z-layer-main {
+.z-layer-main{
   padding: 20px;
   text-align: center;
 }
-
-.z-layer-title {
-  font-size: 16px;
+.z-layer-title{
+  font-size: $titleFontSize;
   font-weight: bold;
-  color: #555;
+  color: $titleColor;
 }
 
-.z-layer-content {
+.z-layer-content{
   padding-top: 15px;
-  font-size: 14px;
-  color: #999;
+  font-size: $contentFontSize;
+  color: $contentColor;
   line-height: 1.4;
 }
-
-.z-layer-btns-wrap {
-  border-top: 1px solid #eee;
-  font-size: 14px;
+.z-layer-btns-wrap{
+  border-top: 1px solid $borderColor;
+  font-size: $contentFontSize;
   display: flex;
+
 }
 
-.z-layer-btn {
+.z-layer-btn{
   display: block;
   padding: 15px 0;
   flex: 1;
   text-align: center;
   text-decoration: none;
 }
-
-.z-layer-btn:nth-child(1) {
-  color: #999;
+.z-layer-btn:nth-child(1){
+  color: $leftBtnColor;
+}
+.z-layer-btn:nth-last-child(1){
+  border-left: 1px solid $borderColor;
+  color: $rightBtnColor;
 }
 
-.z-layer-btn:nth-last-child(1) {
-  border-left: 1px solid #eee;
-  color: #40affe;
-}
-
-.z-toast {
+.z-toast{
   width: 100%;
   height: 100%;
   position: absolute;
@@ -100,7 +101,7 @@ body, html {
   z-index: 99;
 }
 
-.z-toast-mask {
+.z-toast-mask{
   width: 100%;
   height: 100%;
   display: flex;
@@ -108,10 +109,11 @@ body, html {
   align-items: center;
   /* 水平居中 */
   justify-content: center;
+  // background-color: rgba(0, 0, 0, .5);
 }
 
-.z-toast-box {
-  background-color: rgba(0, 0, 0, 0.5);
+.z-toast-box{
+  background-color: rgba(0,0,0,.5);
   text-align: center;
   color: #fff;
   font-size: 14px;
@@ -125,15 +127,16 @@ body, html {
   flex-direction: column;
   max-width: 60%;
 }
-
-.z-toast-box.has-icon {
+.z-toast-box.has-icon{
   width: 100px;
   height: 100px;
-  box-sizing: border-box;
+  box-sizing:border-box;
 }
-
-.z-toast-icon {
+// .z-toast-box.has-icon .z-toast-content{
+  // margin-top:3px;
+// }
+.z-toast-icon{
   display: block;
-  width: 70px;
-  height: 70px;
+  max-width: 70px;
+  max-height: 70px;
 }
