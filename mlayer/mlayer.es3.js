@@ -16,8 +16,8 @@
  */
 var body = document.body
 var root = document.documentElement
-var cssHref = Array.prototype.filter.call(document.scripts,function(item){return item.src.indexOf('mlayer')!==-1})[0].src.replace('.js','.css')
-var layerCss = createElement('link',  {
+var cssHref = Array.prototype.filter.call(document.scripts, function (item) { return item.src.indexOf('mlayer') !== -1 })[0].src.replace('.js', '.css')
+var layerCss = createElement('link', {
   rel: 'stylesheet',
   href: cssHref
 })
@@ -46,9 +46,9 @@ var modalOptions = {
 }
 
 function showModal(options) {
-    document.querySelector('.z-layer') && hideModal()
+  document.querySelector('.z-layer') && hideModal()
   // opt = {...modalOpt, ...opt}
-  options = Object.assign({},modalOptions, options)
+  options = Object.assign({}, modalOptions, options)
   var hasTwoBtns = options.btns.length === 2
   var hasTitle = options.title !== ''
   /**
@@ -58,7 +58,7 @@ function showModal(options) {
     class: 'z-layer-btn',
     href: 'javascript:;'
   }
-  var leftBtn = createElement('a', Object.assign({},btnOpts, {
+  var leftBtn = createElement('a', Object.assign({}, btnOpts, {
     innerHTML: options.btns[0],
     onclick: options.clickLeftBtn
   }))
@@ -67,7 +67,7 @@ function showModal(options) {
   })
   btnWrap.appendChild(leftBtn)
   if (hasTwoBtns) {
-    var rightBtn = createElement('a', Object.assign({},btnOpts, {
+    var rightBtn = createElement('a', Object.assign({}, btnOpts, {
       innerHTML: options.btns[1],
       onclick: options.clickRightBtn
     }))
@@ -131,12 +131,12 @@ function createElement(elementName, attr) {
   }
   return element
 }
-function forbidScroll(){
+function forbidScroll() {
 
-  root.className += root.className.indexOf('noscroll')!== -1 ?'':' noscroll'
+  root.className += root.className.indexOf('noscroll') !== -1 ? '' : ' noscroll'
 }
-function canScroll(){
-  root.className = root.className.replace(' noscroll','')
+function canScroll() {
+  root.className = root.className.replace(' noscroll', '')
 }
 
 var toastOptions = {
@@ -162,7 +162,7 @@ function showToast(toastOptions) {
   if (toastOptionsIsObj) {
     contentString = toastOptions.content
     var hasNewDuration = 'duration' in toastOptions
-    hasNewDuration && (duration = toastOptions.duration) 
+    hasNewDuration && (duration = toastOptions.duration)
   } else {
     var hasNewDuration = arguments.length === 2 && (!isNaN(arguments[1]))
     hasNewDuration && (duration = parseInt(arguments[1]))
@@ -215,11 +215,11 @@ function showLoading(duration) {
     duration: 0,
     icon: loadingIcon
   })
-  if(duration){
-    setTimeout(hideToast,duration)
+  if (duration) {
+    setTimeout(hideToast, duration)
   }
 }
-function hideLoading(){
+function hideLoading() {
   hideToast()
 }
 // export{
