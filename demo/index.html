@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    
+
     <!-- <button id="hideLoadBtn"> 隐藏加载层</button> -->
     <!-- <button id="hideToastBtn"> 隐藏toast</button> -->
     <!-- <button id="hideModalBtn"> 隐藏modal</button> -->
@@ -20,7 +20,6 @@
     <button id="showToastBtn2"> 带图标的提示层</button>
     <button id="showModalBtn"> 有1按钮的modal</button>
     <button id="showModalBtn2"> 有2按钮的modal</button>
-    <br>
     <br>
     <br>
     <br>
@@ -41,14 +40,14 @@
     <script>
         showLoadBtn.onclick = function(){
             showLoading(1000)
-            // also input time 0 will  not dispear 
+            // also input time 0 will  not dispear
             // showLoading(0)
         }
-       
+
         showToastBtn.onclick = function(){
            showToast('i am a toast ,defaultly hide after two seconds')
            // custom duration , equal 0 will not hide
-           // showToast(3000) 
+           // showToast(3000)
         }
         showToastBtn2.onclick = function(){
             const successIcon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAOVBMVEUAAAD///////////////////////////////////////////////////////////////////////8KOjVvAAAAEnRSTlMAEPDQoDDPYLCQIN/An4BwUEAtwvFNAAAAiElEQVQ4y9WQSwrDMAwFn/y3m/Sj+x+2aqEkMs3bhszGoBmMEC6PdKE+3zQxf1eNQr5fuM+B+6rcd+5lNR+ILx+f/Wz2WqeLNNmtb3S/ss1K3vsIR1Qj1M2HAYdYYawCCeoWmIqSy/dtwEFhHF1A2hY88Jf08wvAixd4kQBeDPAiAbwY4DxxAm+JAQldhppBqgAAAABJRU5ErkJggg=='
@@ -56,7 +55,7 @@
                 content: 'sucess',
                 icon: successIcon,
                 duration: 2000,
-            }) 
+            })
         }
         showModalBtn.onclick = function(){
             showModal({ content: '你确定要修改么' ,btns:'yes'})
@@ -76,7 +75,7 @@
                 console.log('here is callback after hiding Modal, you needn\'t write when it is useless ')
             })
         } */
-        
+
     </script>
 </body>
 
