@@ -1,3 +1,4 @@
+wo ye shi
 practice git
 git status
 git add 
@@ -11,4 +12,11 @@ eeeee
 eeee
 
 
+add
+ddd
+add
+adde
+sss
+sss
+sss
 author a
