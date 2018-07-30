@@ -1,7 +1,5 @@
-here add 25d branch
+reset
 
-wo ye shi
-practice git
 git status
 git add 
 git commit
