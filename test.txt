@@ -1,4 +1,4 @@
-reset
+eset
 
 git status
 git add 
