@@ -4,12 +4,15 @@
 
 ## 使用方法
 
-将mlayer.js mlayer.css 放在同一个文件夹。
-mlayer.scss 可以定义层的样式，翻译下就是mlayer.css
-实际使用中，按需使用。
-对于js，使用es6语法了，如果不支持，将const let 箭头函数修改即可
+将mlayer.js mlayer.css 放在同一个文件夹。  
+只需要引入mlayer.js即可。  
+mlayer.scss 可以定义层的样式，这里可以定制想要的样式。  
+实际使用中，按需使用。  
+对于js，使用es6语法了，如果不支持，将const let 箭头函数修改即可。  
 
 ## 加载层
+
+三个点
 
 ```js
 // 默认加载层不自动消失
